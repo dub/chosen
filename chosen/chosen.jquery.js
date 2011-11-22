@@ -290,7 +290,7 @@
       this.container.addClass("chzn-container-" + (this.is_multiple ? "multi" : "single"));
       this.dropdown = this.container.find('div.chzn-drop').first();
       dd_top = this.container.height();
-      dd_width = this.f_width - get_side_border_padding(this.dropdown);
+      dd_width = this.f_width - get_side_border_padding(this.dropdown)+250;
       this.dropdown.css({
         "width": dd_width + "px",
         "top": dd_top + "px"
@@ -483,7 +483,7 @@
     Chosen.prototype.result_add_group = function(group) {
       if (!group.disabled) {
         group.dom_id = this.container_id + "_g_" + group.array_index;
-        return '<li id="' + group.dom_id + '" class="group-result">' + $("<div />").text(group.label).html() + '</li>';
+        return '<li id="' + group.dom_id + '" class="group-result"><span>' + $("<div />").text(group.label).html() + '</span></li>';
       } else {
         return "";
       }
@@ -725,7 +725,7 @@
               result.html(text);
               this.result_activate(result);
               if (option.group_array_index != null) {
-                $("#" + this.results_data[option.group_array_index].dom_id).css('display', 'list-item');
+                $("#" + this.results_data[option.group_array_index].dom_id).css('display', 'block');
               }
             } else {
               if (this.result_highlight && result_id === this.result_highlight.attr('id')) {
